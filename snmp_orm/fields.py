@@ -275,7 +275,7 @@ class MacMapper(Mapper):
             if var == '':
                 return ''
             else:
-                return EUI(':'.join([('%x' % ord(x)).ljust(2, "0") for x in var]))
+                return EUI(':'.join([('%x' % ord(x)).rjust(2, "0") for x in var]))
     def toAsn1(self, var):
         var = super(IntegerMapper, self).toAsn1(var)
         if type(var) == StringType and len(var) != 6:
